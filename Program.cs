@@ -33,8 +33,9 @@
             }
         }
         //Här konverterar jag användarens schacknotation till ints för att kunna placera ut dom i brädet
-        int pieceColumn = pieceLocation[0] - 'A'; //Här läste jag på lite hur ascii funkar och om man subtraherar 'A' så subtraheras ascii värdet vilket innebär att man får en motsvarande int
-        int pieceRow = pieceLocation[1] - '0'; //Subtraherar man en char-siffra med charen '0' så får man siffran i int-format.
+        int pieceColumn = pieceLocation[0] - 'A'; //Här läste jag på lite hur ascii och char-till-intkonvertering funkar om man subtraherar med 'A' så subtraheras ascii-värdet från charen man subtraherar. 
+        //Till exempel så har 'A' ascii värdet 65, om användaren då skriver in 'B' vilket har värdet 66 och man subtraherar med 'A', värdet 65 så får man ascii-värdet 1 vilket man sen kan konvertera till int. Det funkar så för att om man konverterar en char till int så får man alltid ascii-värdet av sin char. 
+        int pieceRow = pieceLocation[1] - '0'; //Subtraherar en char-siffra med charen '0' så man för ascii-värdet man vill ha
         boardCharArray[(boardDimensions - pieceRow), pieceColumn] = userPiece;//Placerar pjäsen efter notationen. Skriver: "(boardDimensions - pieceRow)" eftersom att notationen räknar nedifrån medan arrayan gör tvärtom
         //Här två for loopar som skriver ut det färdiga brädet.
         for (int i = 0; i < boardDimensions; i++)         
